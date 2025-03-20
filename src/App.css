@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
+
+html {
+	direction: rtl;
+	font-family: "IBM Plex Sans Arabic", sans-serif !important;
+}
+
+.header {
+  background-color: black;
+  width: 100vw;
+  height: 50px;
+  margin-bottom: 60px;
+  padding: 10px;
+}
+.header h1 {
+  color: white;
+  text-align: center;
+  margin-top: 2px;
+  /* line-height: 0.5px; */
+}
+.App {
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+  width:100vw;
+}
+.MuiOutlinedInput-notchedOutline {
+  border-color: black !important; 
+  /*  Without !important, your custom border-color: white rule might be overridden by MUI's default styles.   */
+}
+
+.MuiSvgIcon-root {
+	color: black !important;
+}
