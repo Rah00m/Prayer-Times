@@ -1,0 +1,34 @@
+
+.intro-container {
+    background-image: url("./PICs/b.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index:0 ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #4623039a, #934e0e , 0.2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .arrow {
+    margin-top: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  
