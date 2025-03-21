@@ -5,6 +5,7 @@ function Intro({ onSkip }) {
   return (
     <div className="intro-container">
       <h2>"وَأَقِمِ الصَّلَاةَ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ "</h2>
+      <h1></h1>
       <div className="arrow" onClick={onSkip}>➡️</div>
     </div>
   );

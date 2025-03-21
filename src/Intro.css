@@ -1,5 +1,6 @@
 
 .intro-container {
+    position: relative;
     background-image: url("./PICs/b.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,6 +22,9 @@
   }
   
   .arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     margin-top: 20px;
     font-size: 50px;
     cursor: pointer;

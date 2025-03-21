@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
+
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "IBM Plex Sans Arabic", sans-serif !important;
   direction: rtl;
-  	direction: rtl;
-	font-family: "IBM Plex Sans Arabic", sans-serif !important;
 }
+
 html {
+  background-color: black; /* في البداية، الصفحة تكون سوداء فقط */
+}
+
+html.background-active {
   background-image: url("./PICs/back.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  z-index:0 ;
 }
+
 html::before {
   content: "";
   position: fixed;
@@ -25,6 +29,7 @@ html::before {
   background: rgba(0, 0, 0, 0.5); 
   z-index: -1;
 }
+
 .header {
   background-color: black;
   width: 100vw;
@@ -33,33 +38,29 @@ html::before {
   padding: 10px;
   z-index: 2;
 }
+
 .header h1 {
   color: white;
   text-align: center;
   margin-top: 2px;
-  /* z-index: 2; */
 }
+
 .App {
-  /* background-color: black; */
   display: flex;
   justify-content: center;
-  width:100vw;
+  width: 100vw;
 }
+
 .MuiOutlinedInput-notchedOutline {
   border-color: rgb(250, 247, 247) !important; 
-  /*  Without !important, your custom border-color: white rule might be overridden by MUI's default styles.   */
 }
 
 .MuiSvgIcon-root {
-	color:  rgb(250, 247, 247) !important;
+  color: rgb(250, 247, 247) !important;
 } 
 
-.footer {
-
-}
 .footer p {
   color: white;
   text-align: center;
   margin-top: 2px;
-  /* z-index: 4; */
 }
