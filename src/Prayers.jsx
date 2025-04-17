@@ -178,11 +178,11 @@ export default function Prayers({
       md: "30vw"
     },
     width: {
-      xs: "60vw",
+      xs: "80vw",
       sm: "50vw",
       md: "18vw"
     },
-    marginLeft: index === 0 ? "10px" : "0",
+    marginLeft: { xs: 0, md: index === 0 ? "10px" : "0" }
   }}
 >
               <CardActionArea>
