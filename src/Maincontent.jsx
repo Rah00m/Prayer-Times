@@ -4,6 +4,7 @@ import Divider from '@mui/material/Divider';
 import Firstrow from './Firstrow';
 import Prayers from './Prayers';
 import Selection from './Selection';
+import { colors } from '@mui/material';
 
 export default function Maincontent() {
     const [city, setCity] = useState("Cairo"); // Cairo is the default city
@@ -20,7 +21,7 @@ export default function Maincontent() {
             <Firstrow nameCity={nameCity} today={today}  nextPrayeridx={nextPrayeridx} remainingTime={remainingTime}/>
             <Divider style={{ borderColor: 'black', opacity: '0.5', width: '100%', textAlign: 'center', margin: "10px auto" }} />
             <Prayers city={city} nameCity={nameCity}  country={country} namecountry={namecountry} setToday={setToday}  setNextPrayeridx={setNextPrayeridx} setRemainingTime={setRemainingTime} />
-            <Selection type="country" setCountry={setcountry} setNameCountry={setnamecountry}/>
+            <Selection type="country" setCountry={setcountry} setNameCountry={setnamecountry} />
             <Selection type="city" selectedCountry={country} setCity={setCity} setNameCity={setNameCity}/>
         </>
     );

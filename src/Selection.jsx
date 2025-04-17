@@ -80,20 +80,45 @@ return (
     maxWidth: '400px',
   }}
 >
-      <InputLabel style={{width: '35%'} }>{ type === "country" ? "الدولة" : "المدينة"}</InputLabel>
-      <Select label={type === "country" ? "الدولة" : "المدينة"} onChange={handleChange}  defaultValue="">
-      <MenuItem value="" disabled>
+<InputLabel 
+  id={`${type}-label`} 
+  sx={{ color: "white" }}
+>
+  {type === "country" ? "الدولة" : "المدينة"}
+</InputLabel>
+
+<Select
+  labelId={`${type}-label`}
+  defaultValue=""
+  onChange={handleChange}
+  sx={{
+    color: "white",
+    ".MuiOutlinedInput-notchedOutline": {
+      borderColor: "white",
+    },
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "white",
+    },
+    "&:hover .MuiOutlinedInput-notchedOutline": {
+      borderColor: "white",
+    },
+    ".MuiSvgIcon-root": { //arrow of the selection box
+      color: "white",
+    },
+  }}
+>
+  <MenuItem value="" disabled>
     {type === "country" ? "اختر الدولة" : "اختر المدينة"}
   </MenuItem>
-        {options.map((item) => (
-          <MenuItem
-            key={type === "country" ? item.code : item.apiName}
-            value={type === "country" ? item.code : item.apiName}
-          >
-            {type === "country" ? item.name : item.displayName}
-          </MenuItem>
-        ))}
-      </Select>
+  {options.map((item) => (
+    <MenuItem
+      key={type === "country" ? item.code : item.apiName}
+      value={type === "country" ? item.code : item.apiName}
+    >
+      {type === "country" ? item.name : item.displayName}
+    </MenuItem>
+  ))}
+</Select>
     </FormControl>
   </Box>
 );

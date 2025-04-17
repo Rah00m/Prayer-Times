@@ -9,7 +9,7 @@ html, body {
 }
 
 html {
-  background-color: black; /* في البداية، الصفحة تكون سوداء فقط */
+  background-color: black; 
 }
 
 html.background-active {
@@ -41,7 +41,7 @@ html.background-active {
   }
 
   html.background-active {
-    background-attachment: scroll; /* حل لمشكلة الصورة الثابتة على الموبايل */
+    background-attachment: scroll; 
   }
 }
 

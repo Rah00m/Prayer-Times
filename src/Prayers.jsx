@@ -16,8 +16,12 @@ import asrImage from "./PICs/العصر.jpg";
 import maghribImage from "./PICs/المغرب.jpg";
 import ishaImage from "./PICs/العشاء.jpg";
 import moment from "moment";
-import "moment/dist/locale/ar-dz";
-moment.locale("ar-dz");
+// import "moment/dist/locale/ar-dz";
+// moment.locale("ar-dz");
+import dayjs from "dayjs";
+import 'dayjs/locale/ar'; 
+dayjs.locale('ar');       
+
 
 //use effect >> use for side effects >> API req
 //we can do notation in use effect or as a event handler like click event that prevent infinite loop
@@ -50,8 +54,9 @@ export default function Prayers({
 
   //to handle timer >> to show the time remaining to the next prayer
   useEffect(() => {
-    const now = moment();
-    setToday(now.format("dddd، D MMMM YYYY | h:mm A"));
+    // const now = moment();
+    const date = dayjs(); 
+    setToday(date.format("dddd، D MMMM YYYY | h:mm A"));
     //set the current time
     let interval = setInterval(() => {
       setupCountdown();
@@ -112,8 +117,9 @@ export default function Prayers({
     }
     const durationRemainingTime = moment.duration(remainingTime);
     setRemainingTime(
-      `${String(durationRemainingTime.hours()).padStart(2, '0')} : ${String(durationRemainingTime.minutes()).padStart(2, '0')} : ${String(durationRemainingTime.seconds()).padStart(2, '0')}`
-    );    
+      `${String(durationRemainingTime.seconds()).padStart(2, '0')} : ${String(durationRemainingTime.minutes()).padStart(2, '0')} : ${String(durationRemainingTime.hours()).padStart(2, '0')}`
+    );
+    
   };
 
   // ****************************************************************************************************************************************************************************//
