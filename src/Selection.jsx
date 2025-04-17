@@ -67,7 +67,19 @@ export default function Selection({
 // }
 return (
   <Box sx={{ margin: '60px auto' }}>
-    <FormControl style={{ width: '25%', margin: 'auto', display: 'flex' }}>
+<FormControl
+  sx={{
+    width: {
+      xs: '80%', 
+      sm: '60%', 
+      md: '40%',  
+      lg: '25%', 
+    },
+    margin: 'auto',
+    display: 'flex',
+    maxWidth: '400px',
+  }}
+>
       <InputLabel style={{width: '35%'} }>{ type === "country" ? "الدولة" : "المدينة"}</InputLabel>
       <Select label={type === "country" ? "الدولة" : "المدينة"} onChange={handleChange}  defaultValue="">
       <MenuItem value="" disabled>

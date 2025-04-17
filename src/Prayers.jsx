@@ -9,9 +9,6 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Box from "@mui/material/Box";
 import axios from "axios";
 import { useEffect } from "react";
-axios
-  .get("https://api.aladhan.com/v1/timingsByCity?country=SA&city=Riyadh")
-  .then((response) => console.log(response.data));
 // استيراد صور الصلاة
 import fajrImage from "./PICs/الفجر.jpg";
 import dhuhrImage from "./PICs/الظهر.jpg";
@@ -54,7 +51,7 @@ export default function Prayers({
   //to handle timer >> to show the time remaining to the next prayer
   useEffect(() => {
     const now = moment();
-    setToday(now.format("MMM Do YYYY | h:mm"));
+    setToday(now.format("dddd، D MMMM YYYY | h:mm A"));
     //set the current time
     let interval = setInterval(() => {
       setupCountdown();
@@ -115,8 +112,8 @@ export default function Prayers({
     }
     const durationRemainingTime = moment.duration(remainingTime);
     setRemainingTime(
-      `${durationRemainingTime.seconds()} : ${durationRemainingTime.minutes()} : ${durationRemainingTime.hours()}`
-    );
+      `${String(durationRemainingTime.hours()).padStart(2, '0')} : ${String(durationRemainingTime.minutes()).padStart(2, '0')} : ${String(durationRemainingTime.seconds()).padStart(2, '0')}`
+    );    
   };
 
   // ****************************************************************************************************************************************************************************//
@@ -133,35 +130,72 @@ export default function Prayers({
     { key: "Isha", name: "العشاء", image: ishaImage, time: timigs.Isha },
   ];
   return (
-    <div
-      style={{ display: "flex", justifyContent: "center", marginTop: "60px" }}
-    >
-      <Stack
-        direction="row"
-        divider={<Divider orientation="vertical" flexItem />}
-        spacing={1}
-      >
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "60px",
+    direction: "rtl"  
+  }}
+>
+
+<Stack
+  direction={{ xs: "column", md: "row" }}
+  divider={
+    <Divider
+      orientation="vertical"
+      flexItem
+      sx={{
+        display: { xs: "none", md: "block" },
+      }}
+    />
+  }
+  spacing={2}
+  sx={{ alignItems: "center" }}
+>
+
+
         {prayers.map((prayer, index) => (
           <Box key={index}>
-            <Card
+            {/* <Card
               sx={{
                 height: "30vw",
                 width: "18vw",
                 marginLeft: index === 0 ? "10px" : "0",
               }}
-            >
+            > */}
+            <Card
+  sx={{
+    height: {
+      xs: "60vw",
+      sm: "45vw",
+      md: "30vw"
+    },
+    width: {
+      xs: "60vw",
+      sm: "50vw",
+      md: "18vw"
+    },
+    marginLeft: index === 0 ? "10px" : "0",
+  }}
+>
               <CardActionArea>
                 <CardMedia
                   component="img"
                   height="250"
                   image={prayer.image}
                   alt={prayer.name}
+                  sx={{
+                    height: { xs: 150, sm: 200, md: 250 }, // ارتفاع يتغير حسب حجم الشاشة
+                  }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h3" component="div">
+                  <Typography gutterBottom variant="h15" component="div"
+                  sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, textAlign: "center" }}>
                     {prayer.name}
                   </Typography>
-                  <Typography variant="h2" color="text.secondary">
+                  <Typography variant="h1" color="text.secondary"
+                    sx={{ fontSize: { xs: "1.5rem", md: "1.8rem" }, textAlign: "center" }}>
                     {prayer.time}
                   </Typography>
                 </CardContent>
