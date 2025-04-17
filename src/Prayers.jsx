@@ -190,12 +190,12 @@ export default function Prayers({
                   }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h15" component="div"
+                  <Typography gutterBottom variant="h17" component="div"
                   sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, textAlign: "center" }}>
                     {prayer.name}
                   </Typography>
                   <Typography variant="h1" color="text.secondary"
-                    sx={{ fontSize: { xs: "1.5rem", md: "1.8rem" }, textAlign: "center" }}>
+                    sx={{ fontSize: { xs: "1.2rem", md: "1.8rem" }, textAlign: "center" }}>
                     {prayer.time}
                   </Typography>
                 </CardContent>

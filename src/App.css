@@ -17,6 +17,32 @@ html.background-active {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .header {
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-size: 1rem;
+  }
+
+  .footer p {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .App {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  html.background-active {
+    background-attachment: scroll; /* حل لمشكلة الصورة الثابتة على الموبايل */
+  }
 }
 
 html::before {

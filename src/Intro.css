@@ -1,38 +1,76 @@
-
 .intro-container {
-    position: relative;
-    background-image: url("./PICs/b.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index:0 ;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom, #4623039a, #934e0e , 0.2);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: top;
-    text-align: center;
-    font-size: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./PICs/b.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(70, 35, 3, 0.6); /* تظبيط البلند */
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* نخلي المحتوى في النص */
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+.intro-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+.intro-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  cursor: pointer;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* ✅ ميديا كويري للموبايل */
+@media (max-width: 600px) {
+  .intro-container {
+    padding: 15px;
+  }
+
+  .intro-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .intro-container h1 {
+    font-size: 1rem;
+  }
+
   .arrow {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    margin-top: 20px;
-    font-size: 50px;
-    cursor: pointer;
-    animation: bounce 1s infinite;
+    font-size: 40px;
+    bottom: 15px;
+    right: 15px;
   }
-  
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-  }
-  
+}
