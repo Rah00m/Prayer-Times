@@ -99,21 +99,21 @@ export default function Prayers({
     // التايمر (الوقت المتبقي )
     const nextPrayerObject = prayersArray[prayerIndex];
     const nextPrayerTime = timigs[nextPrayerObject.key];
-    // const nextPrayerTimeMoment = moment(nextPrayerTime, "hh:mm");
+    const nextPrayerTimeMoment = moment(nextPrayerTime, "hh:mm");
     let remainingTime = moment(nextPrayerTime, "hh:mm").diff(momentNow);
-    const durationRemainingTime = moment.duration(remainingTime);
     // if the remaining time is less than 0 that mean the next prayer is the Fajr
 
     if (remainingTime < 0) {
       //the diff between now and midnight
       const midnightDiff = moment("23:59:59", "hh:mm:ss").diff(momentNow);
       //the diff between midnight and the Fajr
-      const fajrDiff = moment(timigs["Fajr"], "hh:mm").diff(
+      const fajrDiff = nextPrayerTimeMoment.diff(
         moment("00:00:00", "hh:mm:ss")
       );
       const totalDiff = midnightDiff + fajrDiff;
       remainingTime = totalDiff;
     }
+    const durationRemainingTime = moment.duration(remainingTime);
     setRemainingTime(
       `${durationRemainingTime.seconds()} : ${durationRemainingTime.minutes()} : ${durationRemainingTime.hours()}`
     );
