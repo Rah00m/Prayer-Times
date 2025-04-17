@@ -4,22 +4,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-const availableCities = [
-  { displayName: "مكة المكرمة", apiName: "Makkah al Mukarramah", country: "SA" },
-  { displayName: "الرياض", apiName: "Riyadh", country: "SA" },
-  { displayName: "الدمام", apiName: "Dammam", country: "SA" },
-  { displayName: "القاهرة", apiName: "Cairo", country: "EG" },
-  { displayName: "اسكندرية", apiName: "Alexandria", country: "EG" },
-  { displayName: "قنا", apiName: "Qena", country: "EG" },
-  { displayName: "دبي", apiName: "Dubai", country: "AE" },
-  { displayName: "إسطنبول", apiName: "Istanbul", country: "TR" },
-];
-const countries = [
-  { name: "السعودية", code: "SA" },
-  { name: "مصر", code: "EG" },
-  { name: "الإمارات", code: "AE" },
-  { name: "تركيا", code: "TR" }
-];
+import { availableCities, countries } from "./availableCities";
+
 export default function Selection({ 
   type, 
   setCity, 
@@ -83,7 +69,10 @@ return (
   <Box sx={{ margin: '60px auto' }}>
     <FormControl style={{ width: '25%', margin: 'auto', display: 'flex' }}>
       <InputLabel style={{width: '35%'} }>{ type === "country" ? "الدولة" : "المدينة"}</InputLabel>
-      <Select label={type === "country" ? "الدولة" : "المدينة"} onChange={handleChange}>
+      <Select label={type === "country" ? "الدولة" : "المدينة"} onChange={handleChange}  defaultValue="">
+      <MenuItem value="" disabled>
+    {type === "country" ? "اختر الدولة" : "اختر المدينة"}
+  </MenuItem>
         {options.map((item) => (
           <MenuItem
             key={type === "country" ? item.code : item.apiName}
