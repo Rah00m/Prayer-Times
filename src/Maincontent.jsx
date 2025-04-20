@@ -4,7 +4,7 @@ import Divider from '@mui/material/Divider';
 import Firstrow from './Firstrow';
 import Prayers from './Prayers';
 import Selection from './Selection';
-import { colors } from '@mui/material';
+// import { colors } from '@mui/material';
 
 export default function Maincontent() {
     const [city, setCity] = useState("Cairo"); // Cairo is the default city
