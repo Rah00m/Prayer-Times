@@ -10,18 +10,17 @@ import Box from "@mui/material/Box";
 import axios from "axios";
 import { useEffect } from "react";
 // استيراد صور الصلاة
-import fajrImage from "./PICs/الفجر.jpg";
-import dhuhrImage from "./PICs/الظهر.jpg";
-import asrImage from "./PICs/العصر.jpg";
-import maghribImage from "./PICs/المغرب.jpg";
-import ishaImage from "./PICs/العشاء.jpg";
+import fajrImage from "./PICs/الفجر.webp";
+import dhuhrImage from "./PICs/الظهر.webp";
+import asrImage from "./PICs/العصر.webp";
+import maghribImage from "./PICs/المغرب.webp";
+import ishaImage from "./PICs/العشاء.webp";
 import moment from "moment";
 // import "moment/dist/locale/ar-dz";
 // moment.locale("ar-dz");
 import dayjs from "dayjs";
-import 'dayjs/locale/ar'; 
-dayjs.locale('ar');       
-
+import "dayjs/locale/ar";
+dayjs.locale("ar");
 
 //use effect >> use for side effects >> API req
 //we can do notation in use effect or as a event handler like click event that prevent infinite loop
@@ -55,7 +54,7 @@ export default function Prayers({
   //to handle timer >> to show the time remaining to the next prayer
   useEffect(() => {
     // const now = moment();
-    const date = dayjs(); 
+    const date = dayjs();
     setToday(date.format("dddd، D MMMM YYYY | h:mm A"));
     //set the current time
     let interval = setInterval(() => {
@@ -117,9 +116,13 @@ export default function Prayers({
     }
     const durationRemainingTime = moment.duration(remainingTime);
     setRemainingTime(
-      `${String(durationRemainingTime.seconds()).padStart(2, '0')} : ${String(durationRemainingTime.minutes()).padStart(2, '0')} : ${String(durationRemainingTime.hours()).padStart(2, '0')}`
+      `${String(durationRemainingTime.seconds()).padStart(2, "0")} : ${String(
+        durationRemainingTime.minutes()
+      ).padStart(2, "0")} : ${String(durationRemainingTime.hours()).padStart(
+        2,
+        "0"
+      )}`
     );
-    
   };
 
   // ****************************************************************************************************************************************************************************//
@@ -136,31 +139,28 @@ export default function Prayers({
     { key: "Isha", name: "العشاء", image: ishaImage, time: timigs.Isha },
   ];
   return (
-<div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    marginTop: "60px",
-    direction: "rtl"  
-  }}
->
-
-<Stack
-  direction={{ xs: "column", md: "row" }}
-  divider={
-    <Divider
-      orientation="vertical"
-      flexItem
-      sx={{
-        display: { xs: "none", md: "block" },
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "60px",
+        direction: "rtl",
       }}
-    />
-  }
-  spacing={2}
-  sx={{ alignItems: "center" }}
->
-
-
+    >
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        divider={
+          <Divider
+            orientation="vertical"
+            flexItem
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          />
+        }
+        spacing={2}
+        sx={{ alignItems: "center" }}
+      >
         {prayers.map((prayer, index) => (
           <Box key={index}>
             {/* <Card
@@ -171,20 +171,20 @@ export default function Prayers({
               }}
             > */}
             <Card
-  sx={{
-    height: {
-      xs: "60vw",
-      sm: "45vw",
-      md: "30vw"
-    },
-    width: {
-      xs: "80vw",
-      sm: "50vw",
-      md: "18vw"
-    },
-    marginLeft: { xs: 0, md: index === 0 ? "10px" : "0" }
-  }}
->
+              sx={{
+                height: {
+                  xs: "60vw",
+                  sm: "45vw",
+                  md: "30vw",
+                },
+                width: {
+                  xs: "80vw",
+                  sm: "50vw",
+                  md: "18vw",
+                },
+                marginLeft: { xs: 0, md: index === 0 ? "10px" : "0" },
+              }}
+            >
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -196,12 +196,25 @@ export default function Prayers({
                   }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h17" component="div"
-                  sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, textAlign: "center" }}>
+                  <Typography
+                    gutterBottom
+                    variant="h17"
+                    component="div"
+                    sx={{
+                      fontSize: { xs: "1.5rem", md: "2rem" },
+                      textAlign: "center",
+                    }}
+                  >
                     {prayer.name}
                   </Typography>
-                  <Typography variant="h1" color="text.secondary"
-                    sx={{ fontSize: { xs: "1.2rem", md: "1.8rem" }, textAlign: "center" }}>
+                  <Typography
+                    variant="h1"
+                    color="text.secondary"
+                    sx={{
+                      fontSize: { xs: "1.2rem", md: "1.8rem" },
+                      textAlign: "center",
+                    }}
+                  >
                     {prayer.time}
                   </Typography>
                 </CardContent>
